@@ -17,5 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('empresas', 'EmpresasController@getAll')->name('getAllEmpresas');
-Route::get('defectos', 'DefectosController@getAll')->name('getAllDefectos');
+// Websites routes
+Route::get('websites', 'WebsitesController@getAll')->name('getAllWebsites');
+Route::get('websites/{id}', 'WebsitesController@getWebsitebyId')->name('getWebsitebyId
+');
+Route::get('website/{id}', 'WebsitesController@getDomainbyId')->name('getDomainbyId');
+
+
+
+
+Route::get('issues', 'IssuesController@getAll')->name('getAllIssues');
