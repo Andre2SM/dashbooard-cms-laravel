@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('empresas', 'EmpresasController@getAll')->name('getAllEmpresas');
+Route::get('defectos', 'DefectosController@getAll')->name('getAllDefectos');
