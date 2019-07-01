@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Websites;
 
 class User extends Authenticatable
 {
+    protected $table = 'users';
     use Notifiable;
 
     /**
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','address','logo','contract_type'
     ];
 
     /**
@@ -34,10 +34,10 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
+    /*protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
+    ];*/
+    
     public function websites(){
         return $this->hasMany(Websites::class);
     }

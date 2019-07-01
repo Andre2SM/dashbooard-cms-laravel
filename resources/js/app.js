@@ -4,10 +4,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue');
+window.Vue = require("vue");
+import VueRouter from "vue-router";
+import Vuetify from "vuetify";
+import VueAxios from "vue-axios";
 
+Vue.use(VueRouter);
+Vue.use(Vuetify);
+Vue.use(VueAxios);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +25,49 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
+Vue.component("master", require("./components/Master.vue").default);
+Vue.component("login", require("./components/Login.vue").default);
+
+const routes = [
+    {
+        path: "/dashboard",
+        name: "dashboard",
+        component: require("./components/Dashboard.vue").default
+    },
+    {
+        path: "/profile",
+        name: "profile",
+        component: require("./components/Profile.vue").default
+    },
+    {
+        path: "/calidad",
+        name: "calidad",
+        component: require("./components/Calidad.vue").default
+    },
+    {
+        path: "/tests",
+        name: "tests",
+        component: require("./components/Tests.vue").default
+    },
+    {
+        path: "/dominios",
+        name: "dominios",
+        component: require("./components/Dominios.vue").default
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: require("./components/Login.vue").default
+    }
+];
+
+const router = new VueRouter({
+    routes // short for `routes: routes`
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,5 +76,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
+    router
 });
