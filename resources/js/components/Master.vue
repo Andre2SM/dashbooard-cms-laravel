@@ -39,7 +39,7 @@
     <v-navigation-drawer right temporary v-model="right" fixed></v-navigation-drawer>
     <v-footer color="blue-grey" class="white--text" app>
       <v-spacer></v-spacer>
-      <span>&copy; 2018</span>
+      <span>&copy; 2019</span>
     </v-footer>
   </div>
 </template>
